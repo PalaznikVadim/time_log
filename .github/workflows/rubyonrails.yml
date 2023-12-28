@@ -1,11 +1,15 @@
+# This workflow uses actions that are not certified by GitHub.  They are
+# provided by a third-party and are governed by separate terms of service,
+# privacy policy, and support documentation.
+#
+# This workflow will install a prebuilt Ruby version, install dependencies, and
+# run tests and linters.
 name: "Ruby on Rails CI"
-
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -24,23 +28,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Install Docker
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker.io
-
+      # Add or replace dependency steps here
       - name: Install Ruby and gems
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1 # v1.146.0
         with:
           bundler-cache: true
-
-      - name: Install Dip
-        run: |
-          gem install dip
-
+      # Add or replace database setup steps here
       - name: Set up database schema
-        run: dip provision
-
+        run: bin/rails db:create db:migrate
+      # Add or replace test runners here
       - name: Run tests
-        run: dip bundle exec rspec
+        run: |
+          bin/rake spec:prepare
+          bundle exec rspec
