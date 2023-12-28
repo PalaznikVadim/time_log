@@ -1,4 +1,4 @@
-require_relative '../validations/time_validation'
+require_relative '../validations/time_format_validator'
 
 class Entry < ApplicationRecord
   belongs_to :task
