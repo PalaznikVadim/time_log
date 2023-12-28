@@ -1,0 +1,16 @@
+.mx-auto.w-full.flex{:class => "md:w-2/3"}
+  .mx-auto
+    - if notice.present?
+      %p#notice.py-2.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-lg.inline-block= notice
+    = render @task
+    = link_to t('models.entries'), task_entries_path(@task), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+    = link_to t('models.edit_task'), edit_task_path(@task), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+    .inline-block.ml-2
+      = button_to t('models.delete_task'), task_path(@task), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium"
+    = link_to t('models.back_to_tasks'), tasks_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+    - if @task.may_approve?
+      .inline-block.ml-2
+        = button_to t('models.attributes.task.approve'), approve_task_path(@task), method: :patch, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium"
+    - if @task.may_decline?
+      .inline-block.ml-2
+        = button_to t('models.attributes.task.decline'), decline_task_path(@task), method: :patch, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium"

@@ -1,0 +1,10 @@
+ru:
+  hello: "Привет мир"
+  hour:
+    one: "час"
+    few: "часа"
+    other: "часов"
+  minute:
+    one: "минута"
+    few: "минуты"
+    other: "минут"

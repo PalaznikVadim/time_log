@@ -1,0 +1,14 @@
+%div{:id => "#{dom_id task}"}
+  %p.my-5
+    %strong.block.font-medium.mb-1= "#{t('models.attributes.task.title')}:"
+    = task.title
+  %p.my-5
+    %strong.block.font-medium.mb-1= "#{t('models.attributes.task.description')}(HTML format):"
+    = task.description_html
+  %p.my-5
+    %strong.block.font-medium.mb-1= "#{t('models.attributes.task.approve_state')}:"
+    = task.aasm_state
+  - if action_name != "show"
+    = link_to t('models.show_task'), task, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+    = link_to t('models.edit_task'), edit_task_path(task), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium"
+    %hr.mt-6/

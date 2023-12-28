@@ -1,0 +1,24 @@
+ru:
+  models:
+    entry: "Запись"
+    entries: "Записи"
+    task: "Задача"
+    tasks: "Задачи"
+    new_task: "Новая задача"
+    save_task: "Сохранить задачу"
+    edit_task: "Редактировать задачу"
+    show_task: "Показать задачу"
+    delete_task: "Удалить задачу"
+    update_task: "Обновить задачу"
+    back_to_tasks: "Вернуться к задачам"
+    task_editing: "Редактирование задачи"
+    task_created: "Задача успешно создана!"
+    task_destroyed: "Задача успешно удалена!"
+    task_edited: "Задача успешно обновлена!"
+    attributes:
+      task:
+        title: "Заголовок"
+        description: "Описание"
+        approve_state: "Статус потверждения"
+        approve: "Потвердить задачу"
+        decline: "Отклонить задачу"

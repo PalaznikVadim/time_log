@@ -1,0 +1,18 @@
+ru:
+  prohibited_alert: "запретила/-ли сохранение этой задачи:"
+  error: ["Ошибка", "Ошибки"]
+  activerecord:
+    errors:
+      models:
+        entry:
+          attributes:
+            time:
+              blank: "не может быть пустым"
+            task:
+              blank: "не может быть пустой"
+        task:
+          attributes:
+            title:
+              blank: "не может быть пустым"
+            description:
+              blank: "не может быть пустым"

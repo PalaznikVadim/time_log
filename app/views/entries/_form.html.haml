@@ -1,0 +1,20 @@
+= form_with(model: entry, class: "contents") do |form|
+  - if entry.errors.any?
+    #error_explanation.bg-red-50.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
+      %h2
+        = pluralize(entry.errors.count, "error")
+        prohibited this entry from being saved:
+      %ul
+        - entry.errors.each do |error|
+          %li= error.full_message
+  .my-5
+    = form.label t('entry.attributes.time')
+    = form.text_field :time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+  .my-5
+    = form.label t('entry.attributes.comment')
+    = form.text_field :comment, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+  .my-5
+    = form.hidden_field :task_id
+  .inline
+    = form.submit t(action_name == 'new' ? 'entry.create' : 'entry.update'), class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"
+    = entry.pretty_inspect

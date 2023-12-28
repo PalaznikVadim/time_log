@@ -1,0 +1,17 @@
+= form_for @assignment do |f|
+  - if @assignment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@assignment.errors.count, "error")} prohibited this assignment from being saved:"
+      %ul
+        - @assignment.errors.full_messages.each do |message|
+          %li= message
+
+  = form_for @assignment do |f|
+    .field
+      = f.label :user_id, 'Выберите пользователя'
+      = f.collection_select :user_id, @users, :id, :last_name
+    .field
+      = f.label :task_id, 'Выберите задачу'
+      = f.collection_select :task_id, @tasks, :id, :title
+  .actions
+    = f.submit 'Save'

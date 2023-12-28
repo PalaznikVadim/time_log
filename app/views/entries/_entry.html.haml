@@ -1,0 +1,14 @@
+%div{:id => "#{dom_id entry}"}
+  %p.my-5
+    %strong.block.font-medium.mb-1= "#{t('entry.attributes.time')}:"
+    = entry.time_localized
+  %p.my-5
+    %strong.block.font-medium.mb-1= "#{t('entry.attributes.comment')}:"
+    = entry.comment
+  %p.my-5
+    %strong.block.font-medium.mb-1= "#{t('entry.attributes.task')}:"
+    = entry.task_id
+  - if action_name != "show"
+    = link_to t('entry.show'), entry, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+    = link_to t('entry.edit'), edit_entry_path(entry), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium"
+    %hr.mt-6/

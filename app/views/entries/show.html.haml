@@ -1,0 +1,9 @@
+.mx-auto.w-full.flex{:class => "md:w-2/3"}
+  .mx-auto
+    - if notice.present?
+      %p#notice.py-2.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-lg.inline-block= notice
+    = render @entry
+    = link_to t('entry.edit'), edit_entry_path(@entry), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+    .inline-block.ml-2
+      = button_to t('entry.destroy'), entry_path(@entry), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium"
+    = link_to t('entry.back_to_entries'), task_entries_path(@entry.task_id), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"

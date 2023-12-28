@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @assignment.user
+%p
+  %b Task:
+  = @assignment.task
+
+= link_to 'Edit', edit_assignment_path(@assignment)
+\|
+= link_to 'Back', assignments_path
